@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><h1 align="center">git学习笔记</h1></title>
+</head>
+<body>
+<div id="wmd-preview" class="wmd-preview"><div class="md-section-divider"></div><div class="md-section-divider"></div><h1 id="title"></h1><h1 align="center" data-anchor-id="7dyr" id="git学习笔记">git学习笔记</h1><hr><div class="md-section-divider"></div><h2 data-anchor-id="1fm8" id="根据廖雪峰老师教程学习整理的常用命令">根据<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank">廖雪峰老师</a>教程学习整理的常用命令</h2><div class="md-section-divider"></div><h2 data-anchor-id="l5ig" id="git版本库创建">git版本库创建</h2><pre data-anchor-id="4b6q"><code>git init//初始化一个git仓库
+git add//添加文件到仓库
+git commit//提交文件到仓库
+</code></pre><div class="md-section-divider"></div><h2 data-anchor-id="ikms" id="文件管理相关">文件管理相关</h2><pre data-anchor-id="fkla"><code>git status//查看仓库状态
+
+git reflog//查看命令历史（方便回退版本）
+
+git log//查看最近提交日志
+
+git log --pretty=oneline//一行显示
+
+git diff//工作区和暂存区区别
+
+git diff cached//暂存区和版本库比较
+
+git checkout -- file//丢弃工作区修改内容（未提交到暂存区）
+
+git reset --hard commit_id//回到指定id版本（git reflog命令查看commit_id）
+
+git reset HEAD file //回到工作区修改过后的状态（未提交到暂存区，此时可以git checkout -- file）
+
+git rm//删除文件
+/*
+可以理解为
+1.rm file
+2.git add file
+*/
+</code></pre><div class="md-section-divider"></div><h2 data-anchor-id="yfux" id="远程库">远程库</h2><pre data-anchor-id="0xfl"><code>git remote add origingit@server-name:path/repo-name.git//关联一个远程库
+
+git push -u origin master//第一次推送master分支所有内容
+
+git push origin master//最新推送
+
+git clone git@server-name:path/repo-name.git//克隆版本库(后面可以为多种协议)
+</code></pre><div class="md-section-divider"></div><h2 data-anchor-id="o4qp" id="分支管理">分支管理</h2><pre data-anchor-id="7ywb"><code>git branch//查看分支
+
+git branch &lt;name&gt;//创建分支
+
+git checkout &lt;name&gt;//切换分支
+
+git checkout -b &lt;name&gt;//创建+切换分支
+
+git merge &lt;name&gt;//合并某分支到当前分支
+
+git branch -d &lt;name&gt;//删除分支
+
+git log --graph//查看分支合并图
+
+git merge --no-ff -m "merge with no-ff" dev//普通模式合并，可以看到分支合并图
+</code></pre><div class="md-section-divider"></div><h3 data-anchor-id="esp4" id="bug修复时">bug修复时</h3><pre data-anchor-id="h0io"><code>git stash//保存现有工作状态（当前分支）
+
+git stash list//查看保留的工作区
+
+git stash pop//回复修复bug前的工作状态
+</code></pre><hr><pre data-anchor-id="vtb0"><code>git branch -D &lt;name&gt;//强行删除一个没有合并的分支
+
+git remote -v//查看远程库信息
+
+git push origin branch-name//推送本地分支
+
+git pull//抓取远程的新提交
+
+git checkout -b branch-name origin/branch-name//创建本地对应远程仓库的分支
+
+git branch --set-upstream branch-name origin/branch-name//建立本地与远程仓库的关联
+</code></pre><div class="md-section-divider"></div><h2 data-anchor-id="oth4" id="git标签">git标签</h2><pre data-anchor-id="ri4m"><code>git tag &lt;name&gt;//创建一个标签
+
+git tag -a &lt;tagname&gt; -m "内容"//指定标签内容
+
+git show &lt;tagname&gt;//查看标签说明文字
+
+git push origin &lt;tagname&gt;//推送本地标签
+
+git push origin --tags//推送本地所有未推送标签
+
+git tag -d &lt;tagname&gt;//删除本地标签
+
+git push origin :refs/tags/&lt;tagname&gt;//删除远程标签
+</code></pre></div>
+</body>
+</html>
